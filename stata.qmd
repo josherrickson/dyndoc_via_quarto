@@ -1,0 +1,62 @@
+To include Stata code, wrap calls to `<<dd_do>>` with ```` ```stata ```` blocks:
+
+````markdown
+```stata
+<<dd_do>>
+Put stata code here
+<</dd_do>>
+```
+````
+
+
+E.g.
+
+```stata
+. sysuse dir
+  auto.dta        census.dta      network1a.dta   tsline1.dta
+  auto16.dta      citytemp.dta    nlsw88.dta      tsline2.dta
+  auto2.dta       citytemp4.dta   nlswide1.dta    uslifeexp.dta
+  autornd.dta     educ99gdp.dta   pop2000.dta     uslifeexp2.dta
+  bplong.dta      gnp96.dta       sandstone.dta   voter.dta
+  bpwide.dta      lifeexp.dta     sp500.dta       xtline1.dta
+  cancer.dta      network1.dta    surface.dta
+
+. sysuse auto
+(1978 automobile data)
+
+```
+
+## Another section
+
+The session is persistent within a document
+
+```stata
+. mean mpg
+
+Mean estimation                             Number of obs = 74
+
+--------------------------------------------------------------
+             |       Mean   Std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+         mpg |    21.2973   .6725511       19.9569    22.63769
+--------------------------------------------------------------
+
+```
+
+We can also include images by creating an image in Stata:
+
+```stata
+. hist mpg
+(bin=8, start=12, width=3.625)
+
+```
+
+then adding ``` ![](Graph3.svg) ``` to place the actual image.
+
+![](images/mpg_hist.svg)
+
+The `<<dd_do: quietly>>` option may be useful. Do *not* wrap it in ```` ```stata
+````. Here's a plot that doesn't show the code which generated it.
+
+
+![](images/mpg_price_scatter.svg)

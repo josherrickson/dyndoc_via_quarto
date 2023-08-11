@@ -1,0 +1,18 @@
+project:
+  type: book
+  pre-render: make quarto-prerender
+
+book:
+  title: "Dyndoc via Quarto"
+  author: "Josh Errickson"
+  date: date-modified
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - stata.qmd
+    - summary.qmd
+
+format:
+  html:
+    theme: flatly # Choose from https://bootswatch.com
+    css: style.css

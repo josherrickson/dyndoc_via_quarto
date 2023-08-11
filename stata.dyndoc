@@ -1,0 +1,52 @@
+To include Stata code, wrap calls to `<<dd_do>>` with ```` ```stata ```` blocks:
+
+````markdown
+```stata
+<<dd_ignore>>
+<<dd_do>>
+Put stata code here
+<</dd_do>>
+<</dd_ignore>>
+```
+````
+
+
+E.g.
+
+```stata
+<<dd_do>>
+sysuse dir
+sysuse auto
+<</dd_do>>
+```
+
+## Another section
+
+The session is persistent within a document
+
+```stata
+<<dd_do>>
+mean mpg
+<</dd_do>>
+```
+
+We can also include images by creating an image in Stata:
+
+```stata
+<<dd_do>>
+hist mpg
+<</dd_do>>
+```
+
+then adding ``` <<dd_graph: markdown>> ``` to place the actual image.
+
+<<dd_graph: markdown saving(images/mpg_hist) replace>>
+
+The `<<dd_do: quietly>>` option may be useful. Do *not* wrap it in ```` ```stata
+````. Here's a plot that doesn't show the code which generated it.
+
+<<dd_do: quietly>>
+scatter mpg price
+<</dd_do>>
+
+<<dd_graph: markdown saving(images/mpg_price_scatter) replace>>
