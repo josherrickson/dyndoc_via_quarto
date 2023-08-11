@@ -8,9 +8,8 @@ book:
   date: date-modified
   chapters:
     - index.qmd
-    - intro.qmd
     - stata.qmd
-    - summary.qmd
+    - r.qmd
 
 format:
   html:

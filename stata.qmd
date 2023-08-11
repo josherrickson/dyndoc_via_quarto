@@ -1,3 +1,5 @@
+## Stata
+
 To include Stata code, wrap calls to `<<dd_do>>` with ```` ```stata ```` blocks:
 
 ````markdown
@@ -51,7 +53,17 @@ We can also include images by creating an image in Stata:
 
 ```
 
-then adding ``` ![](Graph3.svg) ``` to place the actual image.
+then adding
+
+```markdown
+<<dd_graph>>
+```
+
+to place the actual image. I'd recommend adding using `dd_graph: markdown
+saving(<filename>) replace` to ensure it writes the image link as markdown
+(instead of HTML directly), and by giving it a name, it avoids an explosion of
+too many image files. If you make a "images/" folder and put it in the filename,
+that will keep the images out of your main directory.
 
 ![](images/mpg_hist.svg)
 

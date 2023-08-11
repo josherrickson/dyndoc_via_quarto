@@ -1,0 +1,9 @@
+# R Files
+
+R quarto files can be included as normal
+
+```{r}
+x <- rnorm(100)
+mean(x)
+hist(x)
+```

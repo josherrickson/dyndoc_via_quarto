@@ -1,5 +1,7 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This repository demostrates how to use [Quarto](https://quarto.org) with Stata's
+[dynamic
+tags/dyndoc](https://www.stata.com/manuals/rptdynamictags.pdf#rptDynamictags) to
+produce an output document. This particular output is a book, but by modifying
+the _quarto.yml, you change the output.

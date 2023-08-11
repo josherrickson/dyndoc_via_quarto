@@ -4,27 +4,20 @@
     "href": "index.html",
     "title": "Dyndoc via Quarto",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Preface\nThis repository demostrates how to use Quarto with Stata’s dynamic tags/dyndoc to produce an output document. This particular output is a book, but by modifying the _quarto.yml, you change the output."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee @knuth84 for additional discussion of literate programming."
+    "objectID": "stata.html#another-section",
+    "href": "stata.html#another-section",
+    "title": "1  Stata",
+    "section": "1.1 Another section",
+    "text": "1.1 Another section\nThe session is persistent within a document\n. mean mpg\n\nMean estimation                             Number of obs = 74\n\n--------------------------------------------------------------\n             |       Mean   Std. err.     [95% conf. interval]\n-------------+------------------------------------------------\n         mpg |    21.2973   .6725511       19.9569    22.63769\n--------------------------------------------------------------\nWe can also include images by creating an image in Stata:\n. hist mpg\n(bin=8, start=12, width=3.625)\nthen adding\n&lt;&lt;dd_graph&gt;&gt;\nto place the actual image. I’d recommend adding using dd_graph: markdown saving(&lt;filename&gt;) replace to ensure it writes the image link as markdown (instead of HTML directly), and by giving it a name, it avoids an explosion of too many image files. If you make a “images/” folder and put it in the filename, that will keep the images out of your main directory.\n\nThe &lt;&lt;dd_do: quietly&gt;&gt; option may be useful. Do not wrap it in ```stata. Here’s a plot that doesn’t show the code which generated it."
   },
   {
-    "objectID": "stata.html",
-    "href": "stata.html",
-    "title": "2  Another section",
+    "objectID": "r.html",
+    "href": "r.html",
+    "title": "2  R Files",
     "section": "",
-    "text": "To include Stata code, wrap calls to &lt;&lt;dd_do&gt;&gt; with ```stata blocks:\n```stata\n&lt;&lt;dd_do&gt;&gt;\nPut stata code here\n&lt;&lt;/dd_do&gt;&gt;\n```\nE.g.\n. sysuse dir\n  auto.dta        census.dta      network1a.dta   tsline1.dta\n  auto16.dta      citytemp.dta    nlsw88.dta      tsline2.dta\n  auto2.dta       citytemp4.dta   nlswide1.dta    uslifeexp.dta\n  autornd.dta     educ99gdp.dta   pop2000.dta     uslifeexp2.dta\n  bplong.dta      gnp96.dta       sandstone.dta   voter.dta\n  bpwide.dta      lifeexp.dta     sp500.dta       xtline1.dta\n  cancer.dta      network1.dta    surface.dta\n\n. sysuse auto\n(1978 automobile data)\nThe session is persistent within a document\n. mean mpg\n\nMean estimation                             Number of obs = 74\n\n--------------------------------------------------------------\n             |       Mean   Std. err.     [95% conf. interval]\n-------------+------------------------------------------------\n         mpg |    21.2973   .6725511       19.9569    22.63769\n--------------------------------------------------------------\nWe can also include images by creating an image in Stata:\n. hist mpg\n(bin=8, start=12, width=3.625)\nthen adding ![](Graph3.svg) to place the actual image.\n\nThe &lt;&lt;dd_do: quietly&gt;&gt; option may be useful. Do not wrap it in ```stata. Here’s a plot that doesn’t show the code which generated it."
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "3  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\nx &lt;- 4\nprint(x)\nx &lt;- 4\nprint(x)\nx &lt;- 4\nprint(x)"
+    "text": "R quarto files can be included as normal\n\nx &lt;- rnorm(100)\nmean(x)\n\n[1] 0.1275617\n\nhist(x)"
   }
 ]

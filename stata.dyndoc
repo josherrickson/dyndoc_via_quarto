@@ -1,3 +1,5 @@
+## Stata
+
 To include Stata code, wrap calls to `<<dd_do>>` with ```` ```stata ```` blocks:
 
 ````markdown
@@ -38,9 +40,21 @@ hist mpg
 <</dd_do>>
 ```
 
-then adding ``` <<dd_graph: markdown>> ``` to place the actual image.
+then adding
 
-<<dd_graph: markdown saving(images/mpg_hist) replace>>
+```markdown
+<<dd_ignore>>
+<<dd_graph>>
+<</dd_ignore>>
+```
+
+to place the actual image. I'd recommend adding using `dd_graph: markdown
+saving(<filename>) replace` to ensure it writes the image link as markdown
+(instead of HTML directly), and by giving it a name, it avoids an explosion of
+too many image files. If you make a "images/" folder and put it in the filename,
+that will keep the images out of your main directory.
+
+<<dd_graph: markdown saving(images/mpg_hist.svg) replace>>
 
 The `<<dd_do: quietly>>` option may be useful. Do *not* wrap it in ```` ```stata
 ````. Here's a plot that doesn't show the code which generated it.
@@ -49,4 +63,4 @@ The `<<dd_do: quietly>>` option may be useful. Do *not* wrap it in ```` ```stata
 scatter mpg price
 <</dd_do>>
 
-<<dd_graph: markdown saving(images/mpg_price_scatter) replace>>
+<<dd_graph: markdown saving(images/mpg_price_scatter.svg) replace>>
